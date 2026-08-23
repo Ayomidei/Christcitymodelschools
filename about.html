@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Christ City Model Schools - Our history, mission, vision, core values, and dedication to holistic sports and education.">
+  <title>Christ City Model Schools | About Us</title>
+  
+  <style>
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* Header & Nav */
+    header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-badge { width: 48px; height: 48px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border: 2px solid var(--accent-gold); border-radius: 50%; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 1.1rem; }
+    .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+    /* Inner Page Hero Header */
+    .page-hero {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-hero p { color: var(--accent-gold); font-size: 1.1rem; font-weight: 600; }
+
+    /* Content Layout */
+    section { padding: 4.5rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    
+    .section-title { margin-bottom: 2rem; }
+    .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    /* Values Grid */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .value-card { background: var(--white); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--vibrant-red); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .value-card h3 { color: var(--primary-blue); font-size: 1.25rem; margin-bottom: 0.8rem; }
+
+    /* Sports Banner */
+    .sports-feature {
+      background: linear-gradient(rgba(12, 35, 64, 0.85), rgba(12, 35, 64, 0.85)),
+                  url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      color: var(--white);
+      margin: 3rem 0;
+    }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; }
+    .btn-primary { background: var(--vibrant-red); color: var(--white); }
+    .btn-primary:hover { background: var(--bright-red); }
+
+    /* Footer */
+    footer { background: #061323; color: var(--white); padding: 4rem 2rem 1.5rem 2rem; border-top: 5px solid var(--vibrant-red); margin-top: 3rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; }
+    .footer-col h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-gold); }
+    .footer-contact-form input, .footer-contact-form textarea, .footer-contact-form select, .newsletter-form input {
+      width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #334155; background: #0F172A; color: var(--white); margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 992px) { .grid-2 { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); flex-direction: column; padding: 1.5rem; gap: 1rem; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .page-hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">Christ City <span>Model Schools</span></div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>About Our School</h1>
+    <p>Discovering Potential, Molding Character, Building Leaders</p>
+  </div>
+
+  <!-- History & Mission Section -->
+  <section>
+    <div class="grid-2">
+      <div>
+        <div class="section-title">
+          <span>Our Foundation</span>
+          <h2>Our History & Heritage</h2>
+        </div>
+        <p style="margin-bottom: 1rem;">Christ City Model Schools was founded on a vision to deliver exceptional, affordable, and holistic education. Starting with a vision to nurture young minds from the foundational Creche level, the institution grew into a full academic ecosystem spanning Nursery, Primary, and Secondary education.</p>
+        <p>Our commitment remains unchanged: providing a safe, welcoming, and disciplined environment where children excel academically, morally, and physically.</p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="School Building" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Cards -->
+  <section style="background: var(--white); max-width: 100%;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="grid-2">
+        <div style="background: var(--light-bg); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--primary-blue);">
+          <h3 style="color: var(--primary-blue); font-size: 1.8rem; margin-bottom: 1rem;">Our Mission</h3>
+          <p>To nurture every child through personalized learning, character training, modern STEM knowledge, and athletic development—preparing them to stand out as ethical global leaders.</p>
+        </div>
+        <div style="background: var(--light-bg); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--vibrant-red);">
+          <h3 style="color: var(--vibrant-red); font-size: 1.8rem; margin-bottom: 1rem;">Our Vision</h3>
+          <p>To be a premier model institution recognized for academic excellence, strong moral discipline, and producing well-rounded scholars empowered for global impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section>
+    <div class="section-title" style="text-align: center;">
+      <span>Guiding Principles</span>
+      <h2>Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Academic Rigor</h3>
+        <p>Promoting curiosity, high performance, and critical thinking across all grade levels.</p>
+      </div>
+      <div class="value-card">
+        <h3>Moral Discipline</h3>
+        <p>Instilling integrity, respect, empathy, and strong moral grounding in daily student life.</p>
+      </div>
+      <div class="value-card">
+        <h3>Athletic Spirit</h3>
+        <p>Fostering physical wellness, teamwork, resilience, and sportsmanship through organized athletics.</p>
+      </div>
+      <div class="value-card">
+        <h3>Innovation & STEM</h3>
+        <p>Integrating modern digital tools, coding fundamentals, and practical science into early learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sports & Athletics Banner -->
+  <section style="padding-top: 0;">
+    <div class="sports-feature">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 1rem;">Sports & Extracurricular Excellence</h2>
+        <p style="margin-bottom: 1.5rem;">At Christ City Model Schools, athletic development goes hand-in-hand with academic learning. Our sports curriculum includes football leagues, track & field events, basketball, table tennis, and physical fitness coaching across all levels.</p>
+        <a href="programs.html" class="btn btn-primary">Explore School Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>Providing excellence in education from Creche to Secondary levels.</p>
+        <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions</a></li>
+          <li><a href="contact.html" style="color: #94A3B8;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Send Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your Inquiry" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="contactStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      status.innerText = "Subscribing...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'Newsletter (About Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    });
+
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Footer Contact (About Page)',
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            program: document.getElementById('contactProgram').value,
+            message: document.getElementById('contactMessage').value,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    });
+  </script>
+</body>
+</html>

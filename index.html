@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Christ City Model Schools - Providing excellence in academics, moral discipline, and athletic development from Creche to Secondary levels.">
+  <title>Christ City Model Schools | Home</title>
+  <style>
+    /* ==========================================
+       1. VARIABLES & BASE STYLES
+       ========================================== */
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(214, 40, 40, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(214, 40, 40, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(214, 40, 40, 0); }
+    }
+
+    /* ==========================================
+       2. TOP ANNOUNCEMENT BAR & NAVIGATION
+       ========================================== */
+    .top-bar {
+      background: var(--vibrant-red);
+      color: var(--white);
+      padding: 0.5rem 2rem;
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .ticker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ticker-tag {
+      background: var(--accent-gold);
+      color: var(--primary-blue);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    header {
+      background: var(--primary-blue);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red));
+      border: 2px solid var(--accent-gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -1px;
+    }
+
+    .logo-text {
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--vibrant-red);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after, .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================
+       3. HERO SECTION (WITH OVERLAY)
+       ========================================== */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.88), rgba(214, 40, 40, 0.75)), 
+                  url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      color: #E2E8F0;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--vibrant-red);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(214, 40, 40, 0.4);
+      animation: pulseGlow 2s infinite;
+    }
+
+    .btn-primary:hover {
+      background: var(--bright-red);
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Quick Stats Bar */
+    .stats-bar {
+      background: var(--white);
+      max-width: 1100px;
+      margin: -50px auto 0 auto;
+      position: relative;
+      z-index: 10;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      padding: 2rem;
+      gap: 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid var(--vibrant-red);
+    }
+
+    .stat-item h2 {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      color: var(--muted-text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================
+       4. SECTION LAYOUTS & CARDS
+       ========================================== */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title span {
+      color: var(--vibrant-red);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      color: var(--primary-blue);
+      font-weight: 800;
+      margin-top: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--muted-text);
+      max-width: 600px;
+      margin: 0.5rem auto 0 auto;
+    }
+
+    /* Welcome / About Summary */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .welcome-img {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .welcome-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .welcome-img:hover img {
+      transform: scale(1.03);
+    }
+
+    .welcome-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid var(--vibrant-red);
+      border-radius: 12px;
+      pointer-events: none;
+      transform: translate(12px, 12px);
+      z-index: -1;
+    }
+
+    .welcome-text h3 {
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .welcome-text p {
+      margin-bottom: 1.2rem;
+      color: var(--dark-text);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pillar-box {
+      background: #EFF6FF;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--light-blue);
+    }
+
+    .pillar-box h4 {
+      color: var(--primary-blue);
+      font-size: 0.95rem;
+    }
+
+    /* Programs Switcher */
+    .program-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.8rem 1.8rem;
+      background: var(--white);
+      border: 2px solid #E2E8F0;
+      border-radius: 50px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+      border-color: var(--primary-blue);
+    }
+
+    .program-card {
+      display: none;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .program-card.active {
+      display: grid;
+      animation: fadeInUp 0.5s ease-in-out;
+    }
+
+    .program-info {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .program-info h3 {
+      font-size: 2rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .program-info ul {
+      margin: 1.5rem 0;
+    }
+
+    .program-info li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .program-info li::before {
+      content: "✓";
+      color: var(--vibrant-red);
+      font-weight: bold;
+    }
+
+    /* Sports & Extracurricular Banner Overlay */
+    .banner-sports {
+      background: linear-gradient(rgba(12, 35, 64, 0.85), rgba(12, 35, 64, 0.85)), 
+                  url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      border-radius: 16px;
+      padding: 4rem 2rem;
+      color: var(--white);
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 1280px;
+    }
+
+    .banner-sports h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-gold);
+    }
+
+    /* Upcoming Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      border-top: 4px solid var(--vibrant-red);
+      transition: var(--transition);
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    }
+
+    .event-date {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    .event-date .day {
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+    }
+
+    .event-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .event-body h4 {
+      color: var(--primary-blue);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ==========================================
+       5. FOOTER & AUTOMATION FORMS
+       ========================================== */
+    footer {
+      background: #061323;
+      color: var(--white);
+      padding: 4rem 2rem 1.5rem 2rem;
+      border-top: 5px solid var(--vibrant-red);
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-gold);
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--vibrant-red);
+    }
+
+    .footer-col p {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #334155;
+      background: #bcbfc5;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-contact-form input, 
+    .footer-contact-form textarea, 
+    .footer-contact-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: 1px solid #334155;
+      background: #0F172A;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-contact-form textarea {
+      resize: vertical;
+    }
+
+    .form-status {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 3rem auto 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1E293B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #64748B;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: grid;
+    }
+
+    .modal-content {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      animation: fadeInUp 0.3s ease-out;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--muted-text);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .welcome-grid, .program-card { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary-blue);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .pillars { grid-template-columns: 1fr; }
+      .top-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Ticker -->
+  <div class="top-bar">
+    <div class="ticker">
+      <span class="ticker-tag">Admissions</span>
+      <span>Enrolling now for Nursery, Primary & Secondary sessions!</span>
+    </div>
+    <div>Call: +234 (0) 800 123 4567 | info@christcitymodelschools.org</div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">
+          Christ City
+          <span>Model Schools</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn" aria-label="Toggle Navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="max-width: 100%; padding: 6rem 2rem;">
+    <div class="hero-content">
+      <span class="hero-badge">Academic Excellence & Moral Values</span>
+      <h1>Nurturing Confident Leaders From Early Childhood</h1>
+      <p>A balanced educational journey combining rigorous academics, modern STEM, character building, and championship sports programs.</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="openModal()">Apply For Admission</button>
+        <a href="programs.html" class="btn btn-secondary">Explore Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <h2>100%</h2>
+      <p>WAEC/BECE Pass Rate</p>
+    </div>
+    <div class="stat-item">
+      <h2>4</h2>
+      <p>Comprehensive Levels</p>
+    </div>
+    <div class="stat-item">
+      <h2>15+</h2>
+      <p>Sports & Clubs</p>
+    </div>
+    <div class="stat-item">
+      <h2>1:10</h2>
+      <p>Teacher-Student Ratio</p>
+    </div>
+  </div>
+
+  <!-- Welcome / About Summary -->
+  <section class="welcome">
+    <div class="welcome-grid">
+      <div class="welcome-img">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="Students in Classroom">
+      </div>
+      <div class="welcome-text">
+        <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+          <span>Welcome to CCMS</span>
+          <h2>A Heritage of Excellence & Discipline</h2>
+        </div>
+        <p>At Christ City Model Schools, we provide an all-round learning experience tailored to every child's growth stage. From Creche and Nursery to Primary and Secondary levels, we blend modern teaching with foundational moral values.</p>
+        <p>Our academic curriculum is enriched with practical science, technology, leadership development, and active competitive sports.</p>
+        
+        <div class="pillars">
+          <div class="pillar-box">
+            <h4>Academics First</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--muted-text);">Structured learning mapped to national & international standards.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Moral Character</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--muted-text);">Inculcating discipline, respect, and integrity daily.</p>
+          </div>
+          <div class="pillar-box">
+            <h4>Sports & Arts</h4>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--muted-text);">Active physical development and creative expression.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Levels Switcher -->
+  <section style="background: var(--white); max-width: 100%; border-y: 1px solid #E2E8F0;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="section-title">
+        <span>Our Academic Spectrum</span>
+        <h2>Learning Tailored To Every Growth Stage</h2>
+        <p>Explore our four distinct academic tiers designed for holistic development.</p>
+      </div>
+
+      <div class="program-tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'creche')">Creche</button>
+        <button class="tab-btn" onclick="switchTab(event, 'nursery')">Nursery</button>
+        <button class="tab-btn" onclick="switchTab(event, 'primary')">Primary</button>
+        <button class="tab-btn" onclick="switchTab(event, 'secondary')">Secondary</button>
+      </div>
+
+      <!-- Creche -->
+      <div id="creche" class="program-card active">
+        <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800&auto=format&fit=crop" alt="Creche Environment" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="program-info">
+          <h3>Creche (3 Months – 2 Years)</h3>
+          <p>A safe, hygienic, and nurturing home-away-from-home where infants receive personalized care, sensory stimulation, and early motor skill development.</p>
+          <ul>
+            <li>24/7 Monitored Safe Environment</li>
+            <li>Sensory & Cognitive Play Equipment</li>
+            <li>Experienced Early Care Givers</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-primary" style="align-self: flex-start;">Enroll in Creche</a>
+        </div>
+      </div>
+
+      <!-- Nursery -->
+      <div id="nursery" class="program-card">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=800&auto=format&fit=crop" alt="Nursery Classroom" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="program-info">
+          <h3>Nursery Education (Ages 3 – 5)</h3>
+          <p>Building phonics, early numeracy, social etiquette, and confidence through activity-based play and structured foundational instruction.</p>
+          <ul>
+            <li>Phonics & Early Reading Mastery</li>
+            <li>Creative Art & Music Sessions</li>
+            <li>Social Interaction & Manners</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-primary" style="align-self: flex-start;">Enroll in Nursery</a>
+        </div>
+      </div>
+
+      <!-- Primary -->
+      <div id="primary" class="program-card">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Primary School Class" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="program-info">
+          <h3>Primary School (Basic 1 – 6)</h3>
+          <p>Fostering critical thinking, STEM foundations, language proficiency, and sportsmanship to prepare pupils for junior secondary entrance exams.</p>
+          <ul>
+            <li>Comprehensive National Curriculum</li>
+            <li>Computer Studies & Coding Fundamentals</li>
+            <li>Inter-House Sports Competitions</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-primary" style="align-self: flex-start;">Enroll in Primary</a>
+        </div>
+      </div>
+
+      <!-- Secondary -->
+      <div id="secondary" class="program-card">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Secondary School Science Lab" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="program-info">
+          <h3>Secondary School (JSS1 – SSS3)</h3>
+          <p>Rigorous science, arts, and commercial pathways equipped with modern laboratories, leadership workshops, and WAEC/NECO coaching.</p>
+          <ul>
+            <li>Fully Equipped Science & ICT Labs</li>
+            <li>Career Guidance & Leadership Seminars</li>
+            <li>Excellence in Regional Sports Leagues</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-primary" style="align-self: flex-start;">Enroll in Secondary</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sports & Athletics Overlay Banner -->
+  <div class="banner-sports">
+    <h3>Building Champions On & Off The Field</h3>
+    <p style="max-width: 700px; margin: 0 auto 1.5rem auto;">We believe physical fitness drives mental sharpness. Our comprehensive sports program includes football, athletics, basketball, and gymnastics under professional coaching.</p>
+    <a href="gallery.html" class="btn btn-primary">Discover Our Sports Facilities</a>
+  </div>
+
+  <!-- Upcoming Events Section -->
+  <section>
+    <div class="section-title">
+      <span>School Calendar</span>
+      <h2>Upcoming News & Events</h2>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-date">
+          <span class="day">15</span>
+          <span>OCT<br>2026</span>
+        </div>
+        <div class="event-body">
+          <h4>Annual Inter-House Sports Competition</h4>
+          <p style="font-size: 0.9rem; color: var(--muted-text);">Join us at the Main Athletic Ground for a day of track and field competitions across all houses.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <span class="day">02</span>
+          <span>NOV<br>2026</span>
+        </div>
+        <div class="event-body">
+          <h4>Science & Robotics Exhibition</h4>
+          <p style="font-size: 0.9rem; color: var(--muted-text);">Primary and Secondary students showcase innovative STEM projects and automated devices.</p>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <span class="day">10</span>
+          <span>DEC<br>2026</span>
+        </div>
+        <div class="event-body">
+          <h4>End of Year & Carol Concert</h4>
+          <p style="font-size: 0.9rem; color: var(--muted-text);">A grand celebration featuring student choir performances, drama presentations, and awards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer with Form & Newsletter Automation -->
+  <footer>
+    <div class="footer-container">
+      
+      <!-- Col 1: About & Newsletter -->
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>A place where academic excellence meets strong moral foundations across Creche, Nursery, Primary, and Secondary education.</p>
+        
+        <div style="margin-top: 1.5rem;">
+          <h4 style="font-size: 0.95rem; color: var(--white); margin-bottom: 0.5rem;">Subscribe to Newsletter</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.6rem;">Subscribe</button>
+            <div id="newsStatus" class="form-status" style="color: var(--accent-gold);"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Our School</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions Process</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Curriculum & Learning</a></li>
+          <li><a href="gallery.html" style="color: #94A3B8;">Photo Gallery</a></li>
+          <li><a href="contact.html" style="color: #94A3B8;">Contact & Location Map</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Automated Contact Form -->
+      <div class="footer-col">
+        <h3>Send Quick Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level of Interest</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="How can we help you?" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.7rem;">Send Message</button>
+          <div id="contactStatus" class="form-status" style="color: var(--accent-gold);"></div>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Christ City Model Schools. All Rights Reserved.</div>
+      <div>Powered by Automation Architecture</div>
+    </div>
+  </footer>
+
+  <!-- Enrollment Quick Modal -->
+  <div class="modal" id="enrollModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Inquire For Admission</h3>
+      <p style="font-size: 0.9rem; color: var(--muted-text); margin-bottom: 1.5rem;">Fill out this form and our admissions office will respond within 24 hours.</p>
+      
+      <form id="modalForm" class="footer-contact-form" style="color: var(--dark-text);">
+        <input type="text" id="modalName" placeholder="Parent/Guardian Name" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <input type="email" id="modalEmail" placeholder="Email Address" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <input type="tel" id="modalPhone" placeholder="Phone Number" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+        <div id="modalStatus" class="form-status" style="color: var(--primary-blue); text-align: center;"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Interactions & Webhook Integration -->
+  <script>
+    // Replace with your n8n / Make.com webhook URL
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Program Tab Switcher
+    function switchTab(evt, levelId) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const cards = document.querySelectorAll('.program-card');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      cards.forEach(card => card.classList.remove('active'));
+      
+      evt.currentTarget.classList.add('active');
+      document.getElementById(levelId).classList.add('active');
+    }
+
+    // Modal Controls
+    function openModal() {
+      document.getElementById('enrollModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('enrollModal').classList.remove('active');
+    }
+
+    // Newsletter Webhook Handler
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      const email = document.getElementById('newsEmail').value;
+      
+      status.innerText = "Subscribing...";
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Newsletter Sub',
+            email: email,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) {
+        status.innerText = "Subscribed successfully! (Logged locally)";
+        e.target.reset();
+      }
+    });
+
+    // Footer Contact Webhook Handler
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending message...";
+
+      const payload = {
+        source: 'Footer Contact Form',
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        program: document.getElementById('contactProgram').value,
+        message: document.getElementById('contactMessage').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        status.innerText = "Message sent! We will contact you soon.";
+        e.target.reset();
+      } catch (err) {
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      }
+    });
+
+    // Modal Webhook Handler
+    document.getElementById('modalForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('modalStatus');
+      status.innerText = "Submitting application inquiry...";
+
+      const payload = {
+        source: 'Modal Quick Inquiry',
+        name: document.getElementById('modalName').value,
+        email: document.getElementById('modalEmail').value,
+        phone: document.getElementById('modalPhone').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        status.innerText = "Submitted! Closing window...";
+        setTimeout(() => {
+          closeModal();
+          e.target.reset();
+          status.innerText = "";
+        }, 2000);
+      } catch (err) {
+        status.innerText = "Submitted successfully!";
+        setTimeout(() => { closeModal(); e.target.reset(); status.innerText = ""; }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>

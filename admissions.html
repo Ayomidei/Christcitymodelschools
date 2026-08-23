@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to Christ City Model Schools. Review entry requirements, admission steps, and submit your enrollment application online.">
+  <title>Christ City Model Schools | Admissions</title>
+  
+  <style>
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* Header & Navigation */
+    header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-badge { width: 48px; height: 48px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border: 2px solid var(--accent-gold); border-radius: 50%; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 1.1rem; }
+    .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+    /* Page Hero Header */
+    .page-hero {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
+                  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-hero p { color: var(--accent-gold); font-size: 1.1rem; font-weight: 600; }
+
+    /* Section Styling */
+    section { padding: 4.5rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 2.5rem; }
+    .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    /* Step Cards */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .step-card { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; border-top: 5px solid var(--vibrant-red); }
+    .step-num { font-size: 2.5rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.5rem; }
+    .step-card h3 { color: var(--primary-blue); margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.95rem; color: var(--muted-text); }
+
+    /* Application Form Section */
+    .app-form-container { background: var(--white); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: var(--primary-blue); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.8rem; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 0.95rem; background: var(--light-bg);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+    /* Button */
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; text-align: center; }
+    .btn-primary { background: var(--vibrant-red); color: var(--white); }
+    .btn-primary:hover { background: var(--bright-red); }
+
+    /* Footer */
+    footer { background: #061323; color: var(--white); padding: 4rem 2rem 1.5rem 2rem; border-top: 5px solid var(--vibrant-red); margin-top: 3rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; }
+    .footer-col h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-gold); }
+    .footer-contact-form input, .footer-contact-form textarea, .footer-contact-form select, .newsletter-form input {
+      width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #334155; background: #0F172A; color: var(--white); margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); flex-direction: column; padding: 1.5rem; gap: 1rem; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .page-hero h1 { font-size: 2.2rem; }
+      .footer-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">Christ City <span>Model Schools</span></div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html" class="active">Admissions</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>Admissions & Enrollment</h1>
+    <p>Begin Your Child's Educational Journey With Us</p>
+  </div>
+
+  <!-- Admission Steps -->
+  <section>
+    <div class="section-title">
+      <span>Enrollment Process</span>
+      <h2>4 Easy Steps To Join CCMS</h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Application Submission</h3>
+        <p>Complete the online registration form below or pick up an application form at our administrative office.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Assessment & Screening</h3>
+        <p>Applicants for Primary and Secondary levels undertake a basic placement assessment to gauge learning readiness.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Interactive Interview</h3>
+        <p>A brief interview session with parents and students to discuss academic goals and school expectations.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Offer & Registration</h3>
+        <p>Receive formal admission offer, complete fee payment, and obtain orientation materials and uniforms.</p>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="app-form-container">
+      <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; text-align: center; font-size: 1.6rem;">Online Student Application Form</h3>
+      <form id="admissionForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Child's Full Name</label>
+            <input type="text" id="studentName" required placeholder="First and Last Name">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="studentDob" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Applying For Level</label>
+            <select id="applyLevel" required>
+              <option value="" disabled selected>Select Program Level</option>
+              <option value="Creche">Creche (3 Months - 1.5 Yrs)</option>
+              <option value="Nursery">Nursery & Pre-School</option>
+              <option value="Primary">Primary School</option>
+              <option value="Secondary">Junior / Senior Secondary</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Intended Session</label>
+            <select id="applySession" required>
+              <option value="2026/2027">2026 / 2027 Academic Session</option>
+              <option value="Mid-Term">Mid-Term Transfer Entry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Parent/Guardian Full Name</label>
+            <input type="text" id="parentName" required placeholder="Parent Full Name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="parentPhone" required placeholder="+234...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="parentEmail" required placeholder="parent@example.com">
+        </div>
+
+        <div class="form-group">
+          <label>Residential Address</label>
+          <textarea id="homeAddress" rows="2" placeholder="Full Home Address" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem;">Submit Application</button>
+        <div id="appStatus" style="text-align: center; font-weight: 700; color: var(--light-blue); margin-top: 1rem;"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>Providing excellence in education from Creche to Secondary levels.</p>
+        <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions</a></li>
+          <li><a href="fees-contact.html" style="color: #94A3B8;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Send Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your Inquiry" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="contactStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    document.getElementById('admissionForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('appStatus');
+      status.innerText = "Submitting application details...";
+
+      const payload = {
+        source: 'Online Admission Application',
+        studentName: document.getElementById('studentName').value,
+        dob: document.getElementById('studentDob').value,
+        level: document.getElementById('applyLevel').value,
+        session: document.getElementById('applySession').value,
+        parentName: document.getElementById('parentName').value,
+        phone: document.getElementById('parentPhone').value,
+        email: document.getElementById('parentEmail').value,
+        address: document.getElementById('homeAddress').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        status.innerText = "Application submitted successfully! Our admissions team will reach out.";
+        e.target.reset();
+      } catch (err) {
+        status.innerText = "Failed to submit application. Please try again.";
+      }
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      status.innerText = "Subscribing...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'Newsletter', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    });
+
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Footer Contact (Admissions Page)',
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            program: document.getElementById('contactProgram').value,
+            message: document.getElementById('contactMessage').value,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    });
+  </script>
+</body>
+</html>

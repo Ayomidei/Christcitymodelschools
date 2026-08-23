@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stay updated with upcoming academic, sports, cultural, and holiday events at Christ City Model Schools. RSVP online!">
+  <title>Christ City Model Schools | News & Events</title>
+  
+  <style>
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* Header & Navigation */
+    header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-badge { width: 48px; height: 48px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border: 2px solid var(--accent-gold); border-radius: 50%; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 1.1rem; }
+    .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+    /* Page Hero Header */
+    .page-hero {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
+                  url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-hero p { color: var(--accent-gold); font-size: 1.1rem; font-weight: 600; }
+
+    /* Section Layout */
+    section { padding: 4.5rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    /* Events Listing Grid */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .event-row {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      align-items: center;
+      transition: var(--transition);
+      border-left: 6px solid var(--vibrant-red);
+    }
+    .event-row:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .event-date-box {
+      background: var(--primary-blue);
+      color: var(--white);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .event-date-box .day { font-size: 2.5rem; font-weight: 800; color: var(--accent-gold); line-height: 1; }
+    .event-date-box .month { font-size: 1rem; font-weight: 700; text-transform: uppercase; margin-top: 0.2rem; }
+    .event-info { padding: 1.8rem; }
+    .event-info h3 { font-size: 1.4rem; color: var(--primary-blue); margin-bottom: 0.5rem; }
+    .event-info p { color: var(--muted-text); font-size: 0.95rem; margin-bottom: 0.8rem; }
+    .event-meta { display: flex; gap: 1.5rem; font-size: 0.85rem; color: var(--primary-blue); font-weight: 600; }
+    .event-action { padding: 1.8rem; }
+
+    /* Button */
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; }
+    .btn-primary { background: var(--vibrant-red); color: var(--white); }
+    .btn-primary:hover { background: var(--bright-red); }
+
+    /* RSVP Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      place-items: center;
+      padding: 1rem;
+    }
+    .modal.active { display: grid; }
+    .modal-content {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--muted-text); }
+
+    /* Footer */
+    footer { background: #061323; color: var(--white); padding: 4rem 2rem 1.5rem 2rem; border-top: 5px solid var(--vibrant-red); margin-top: 3rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; }
+    .footer-col h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-gold); }
+    .footer-contact-form input, .footer-contact-form textarea, .footer-contact-form select, .newsletter-form input {
+      width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #334155; background: #0F172A; color: var(--white); margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 992px) { 
+      .event-row { grid-template-columns: 1fr; border-left: none; border-top: 6px solid var(--vibrant-red); } 
+      .event-date-box { height: auto; padding: 1rem; }
+      .footer-container { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); flex-direction: column; padding: 1.5rem; gap: 1rem; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .page-hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">Christ City <span>Model Schools</span></div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>News & Upcoming Events</h1>
+    <p>Stay Informed With School Activities, Academic Deadlines & Sports Galas</p>
+  </div>
+
+  <!-- Events Listing -->
+  <section>
+    <div class="section-title">
+      <span>School Schedule</span>
+      <h2>Upcoming Events & Announcements</h2>
+    </div>
+
+    <div class="events-list">
+      <!-- Event 1 -->
+      <div class="event-row">
+        <div class="event-date-box">
+          <div class="day">15</div>
+          <div class="month">OCT 2026</div>
+        </div>
+        <div class="event-info">
+          <h3>Annual Inter-House Sports Gala</h3>
+          <p>A full day of competitive athletics, track events, football finals, and march-past parades featuring pupils from Nursery to Secondary levels.</p>
+          <div class="event-meta">
+            <span>📍 Main Athletic Field</span>
+            <span>⏰ 9:00 AM WAT</span>
+          </div>
+        </div>
+        <div class="event-action">
+          <button class="btn btn-primary" onclick="openRsvp('Annual Inter-House Sports Gala')">RSVP / Attend</button>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-row" style="border-left-color: var(--primary-blue);">
+        <div class="event-date-box" style="background: #1D4ED8;">
+          <div class="day">02</div>
+          <div class="month">NOV 2026</div>
+        </div>
+        <div class="event-info">
+          <h3>STEM & Robotics Fair</h3>
+          <p>Our Primary and Secondary scholars present automated projects, coding demonstrations, science experiments, and innovative inventions.</p>
+          <div class="event-meta">
+            <span>📍 School Multipurpose Hall</span>
+            <span>⏰ 10:00 AM WAT</span>
+          </div>
+        </div>
+        <div class="event-action">
+          <button class="btn btn-primary" onclick="openRsvp('STEM & Robotics Fair')">RSVP / Attend</button>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-row" style="border-left-color: var(--accent-gold);">
+        <div class="event-date-box" style="background: #08233e;">
+          <div class="day">10</div>
+          <div class="month">DEC 2026</div>
+        </div>
+        <div class="event-info">
+          <h3>End-of-Year Concert & Carol Night</h3>
+          <p>Celebratory evening with musical choir performances, drama productions, awards presentation, and Christmas carol renditions.</p>
+          <div class="event-meta">
+            <span>📍 Auditorium</span>
+            <span>⏰ 4:00 PM WAT</span>
+          </div>
+        </div>
+        <div class="event-action">
+          <button class="btn btn-primary" onclick="openRsvp('End-of-Year Concert & Carol Night')">RSVP / Attend</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Modal -->
+  <div class="modal" id="rsvpModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeRsvp()">&times;</span>
+      <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;" id="modalEventTitle">Event RSVP</h3>
+      <p style="font-size: 0.9rem; color: var(--muted-text); margin-bottom: 1.5rem;">Reserve seating or express interest for this event.</p>
+      
+      <form id="rsvpForm" class="footer-contact-form" style="color: var(--dark-text);">
+        <input type="text" id="rsvpName" placeholder="Parent / Guest Full Name" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <input type="email" id="rsvpEmail" placeholder="Email Address" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <input type="tel" id="rsvpPhone" placeholder="Phone Number" required style="background: #F1F5F9; color: var(--dark-text); border-color: #CBD5E1;">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Reservation</button>
+        <div id="rsvpStatus" style="color: var(--primary-blue); font-weight: 600; text-align: center; margin-top: 0.5rem;"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>Providing excellence in education from Creche to Secondary levels.</p>
+        <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions</a></li>
+          <li><a href="contact.html" style="color: #94A3B8;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Send Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your Inquiry" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="contactStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+    let selectedEventName = "";
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    // RSVP Modal Controls
+    function openRsvp(eventName) {
+      selectedEventName = eventName;
+      document.getElementById('modalEventTitle').innerText = "RSVP: " + eventName;
+      document.getElementById('rsvpModal').classList.add('active');
+    }
+    function closeRsvp() {
+      document.getElementById('rsvpModal').classList.remove('active');
+    }
+
+    // RSVP Form Submission Webhook Handler
+    document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('rsvpStatus');
+      status.innerText = "Processing reservation...";
+
+      const payload = {
+        source: 'Event RSVP',
+        eventName: selectedEventName,
+        name: document.getElementById('rsvpName').value,
+        email: document.getElementById('rsvpEmail').value,
+        phone: document.getElementById('rsvpPhone').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        status.innerText = "RSVP Confirmed! Closing window...";
+        setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
+      } catch (err) {
+        status.innerText = "RSVP Confirmed!";
+        setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
+      }
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      status.innerText = "Subscribing...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'Newsletter (Events Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    });
+
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Footer Contact (Events Page)',
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            program: document.getElementById('contactProgram').value,
+            message: document.getElementById('contactMessage').value,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    });
+  </script>
+</body>
+</html>

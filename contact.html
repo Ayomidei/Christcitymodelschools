@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View fee structures, payment policies, and contact Christ City Model Schools directly via our contact form or phone lines.">
+  <title>Christ City Model Schools | Tuition Fees & Contact Us</title>
+  
+  <style>
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* Header & Navigation */
+    header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-badge { width: 48px; height: 48px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border: 2px solid var(--accent-gold); border-radius: 50%; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 1.1rem; }
+    .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+    /* Page Hero Header */
+    .page-hero {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
+                  url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-hero p { color: var(--accent-gold); font-size: 1.1rem; font-weight: 600; }
+
+    /* Section Layout */
+    section { padding: 4rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 2.5rem; }
+    .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    /* Contact Grid */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+    .contact-info-card { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border-top: 5px solid var(--vibrant-red); }
+    .info-item { margin-bottom: 1.5rem; }
+    .info-item h4 { color: var(--primary-blue); font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .info-item p { color: var(--muted-text); font-size: 0.95rem; }
+
+    /* Main Contact Form */
+    .contact-form-card { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: var(--primary-blue); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.8rem; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 0.95rem; background: var(--light-bg);
+    }
+
+    /* Button */
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; text-align: center; }
+    .btn-primary { background: var(--vibrant-red); color: var(--white); }
+    .btn-primary:hover { background: var(--bright-red); }
+
+    /* Footer */
+    footer { background: #061323; color: var(--white); padding: 4rem 2rem 1.5rem 2rem; border-top: 5px solid var(--vibrant-red); margin-top: 3rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; }
+    .footer-col h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-gold); }
+    .footer-contact-form input, .footer-contact-form textarea, .footer-contact-form select, .newsletter-form input {
+      width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #334155; background: #0F172A; color: var(--white); margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 992px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); flex-direction: column; padding: 1.5rem; gap: 1rem; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .page-hero h1 { font-size: 2.2rem; }
+      .footer-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">Christ City <span>Model Schools</span></div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>Contact Us</h1>
+    <p>Transparent Fee Structures & Direct Channels To Our Administrative Team</p>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background: #F1F5F9; border-radius: 16px;">
+    <div class="section-title">
+      <span>Get In Touch</span>
+      <h2>Reach Out To Our Office</h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Details -->
+      <div class="contact-info-card">
+        <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; font-size: 1.4rem;">School Information</h3>
+        
+        <div class="info-item">
+          <h4>📍 Campus Address</h4>
+          <p>Christ City Model Schools Campus, Main School Road, City Center.</p>
+        </div>
+
+        <div class="info-item">
+          <h4>📞 Phone Lines</h4>
+          <p>Admissions Hotline: +234 (0) 800 123 4567<br>Administrative Office: +234 (0) 800 765 4321</p>
+        </div>
+
+        <div class="info-item">
+          <h4>✉️ Official Email</h4>
+          <p>info@christcitymodelschools.edu.ng<br>admissions@christcitymodelschools.edu.ng</p>
+        </div>
+
+        <div class="info-item">
+          <h4>⏰ Office Hours</h4>
+          <p>Monday - Friday: 7:30 AM - 4:00 PM WAT<br>Saturdays: By Appointment</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-card">
+        <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; font-size: 1.4rem;">Send Direct Message</h3>
+        <form id="mainContactForm">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="mainName" required placeholder="Your Name">
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="mainEmail" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="mainPhone" required placeholder="+234...">
+          </div>
+
+          <div class="form-group">
+            <label>Subject / Concern</label>
+            <select id="mainSubject" required>
+              <option value="Admission Inquiry">Admission Inquiry</option>
+              <option value="Fee Structure & Payment">Fee Structure & Payment</option>
+              <option value="Academic Counseling">Academic Counseling</option>
+              <option value="General Information">General Information</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea id="mainMessage" rows="4" placeholder="How can we assist you?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message</button>
+          <div id="mainFormStatus" style="text-align: center; font-weight: 700; color: var(--light-blue); margin-top: 1rem;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>Providing excellence in education from Creche to Secondary levels.</p>
+        <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions</a></li>
+          <li><a href="fees-contact.html" style="color: #94A3B8;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Send Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your Inquiry" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="contactStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    document.getElementById('mainContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('mainFormStatus');
+      status.innerText = "Transmitting message...";
+
+      const payload = {
+        source: 'Main Contact Page Form',
+        name: document.getElementById('mainName').value,
+        email: document.getElementById('mainEmail').value,
+        phone: document.getElementById('mainPhone').value,
+        subject: document.getElementById('mainSubject').value,
+        message: document.getElementById('mainMessage').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        status.innerText = "Thank you! Your message has been received.";
+        e.target.reset();
+      } catch (err) {
+        status.innerText = "Sorry, there was an error sending your message.";
+        e.target.reset();
+      }
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      status.innerText = "Subscribing...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'Newsletter', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    });
+
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Footer Contact (Fees & Contact Page)',
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            program: document.getElementById('contactProgram').value,
+            message: document.getElementById('contactMessage').value,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    });
+  </script>
+</body>
+</html>

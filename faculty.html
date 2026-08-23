@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the qualified teachers, department heads, and leadership team at Christ City Model Schools.">
+  <title>Christ City Model Schools | Faculty & Staff</title>
+  
+  <style>
+    :root {
+      --primary-blue: #0C2340;
+      --light-blue: #1D4ED8;
+      --vibrant-red: #D62828;
+      --bright-red: #EF233C;
+      --accent-gold: #F4D35E;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --dark-text: #1E293B;
+      --muted-text: #64748B;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* Header & Navigation */
+    header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-badge { width: 48px; height: 48px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border: 2px solid var(--accent-gold); border-radius: 50%; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 1.1rem; }
+    .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+    /* Page Hero Header */
+    .page-hero {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
+                  url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-hero p { color: var(--accent-gold); font-size: 1.1rem; font-weight: 600; }
+
+    /* Section Layout */
+    section { padding: 4.5rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    /* Faculty Grid */
+    .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .staff-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: var(--transition);
+      border-bottom: 4px solid var(--vibrant-red);
+    }
+    .staff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+    .staff-avatar { height: 260px; overflow: hidden; }
+    .staff-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .staff-info { padding: 1.5rem; }
+    .staff-info h3 { color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 0.2rem; }
+    .staff-info .role { color: var(--vibrant-red); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; display: block; }
+    .staff-info p { color: var(--muted-text); font-size: 0.9rem; }
+
+    /* Button */
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; text-align: center; }
+    .btn-primary { background: var(--vibrant-red); color: var(--white); }
+    .btn-primary:hover { background: var(--bright-red); }
+
+    /* Footer */
+    footer { background: #061323; color: var(--white); padding: 4rem 2rem 1.5rem 2rem; border-top: 5px solid var(--vibrant-red); margin-top: 3rem; }
+    .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; }
+    .footer-col h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-gold); }
+    .footer-contact-form input, .footer-contact-form textarea, .footer-contact-form select, .newsletter-form input {
+      width: 100%; padding: 0.75rem; border-radius: 5px; border: 1px solid #334155; background: #0F172A; color: var(--white); margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-blue); flex-direction: column; padding: 1.5rem; gap: 1rem; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .page-hero h1 { font-size: 2.2rem; }
+      .footer-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <div class="logo-badge">CCMS</div>
+        <div class="logo-text">Christ City <span>Model Schools</span></div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="faculty.html" class="active">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>Our Faculty & Leadership</h1>
+    <p>Dedicated Educators Committed To Inspiring Academic & Moral Excellence</p>
+  </div>
+
+  <!-- Faculty Grid -->
+  <section>
+    <div class="section-title">
+      <span>Our Team</span>
+      <h2>School Leadership & Educators</h2>
+    </div>
+
+    <div class="faculty-grid">
+      <!-- Member 1 -->
+      <div class="staff-card">
+        <div class="staff-avatar">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Proprietress">
+        </div>
+        <div class="staff-info">
+          <h3>Dr. (Mrs.) E. A. Adebayo</h3>
+          <span class="role">Proprietress & Director</span>
+          <p>Over 25 years of educational leadership dedicated to building godly character and academic distinction.</p>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="staff-card">
+        <div class="staff-avatar">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Principal">
+        </div>
+        <div class="staff-info">
+          <h3>Mr. O. M. Okonkwo</h3>
+          <span class="role">Secondary Principal</span>
+          <p>M.Ed in Educational Management with passion for STEM development and secondary curriculum innovation.</p>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="staff-card">
+        <div class="staff-avatar">
+          <img src="https://images.unsplash.com/photo-1580894732413-a751516a4a11?q=80&w=800&auto=format&fit=crop" alt="Head Teacher">
+        </div>
+        <div class="staff-info">
+          <h3>Mrs. A. B. Ibrahim</h3>
+          <span class="role">Primary Headmistress</span>
+          <p>Expert in foundational literacy, pupil development, and child psychology in early primary education.</p>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="staff-card">
+        <div class="staff-avatar">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="ICT Head">
+        </div>
+        <div class="staff-info">
+          <h3>Engr. K. T. Daniel</h3>
+          <span class="role">Head of ICT & STEM Lab</span>
+          <p>Directs coding modules, robotics projects, and practical digital skills training across all grade levels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Christ City Model Schools</h3>
+        <p>Providing excellence in education from Creche to Secondary levels.</p>
+        <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
+          <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
+          <li><a href="admissions.html" style="color: #94A3B8;">Admissions</a></li>
+          <li><a href="contact.html" style="color: #94A3B8;">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Send Inquiry</h3>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email Address" required>
+          <select id="contactProgram" required>
+            <option value="" disabled selected>Select Level</option>
+            <option value="Creche">Creche</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your Inquiry" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="contactStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('newsStatus');
+      status.innerText = "Subscribing...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'Newsletter (Faculty Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+        });
+        status.innerText = "Subscribed successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    });
+
+    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.innerText = "Sending...";
+      try {
+        await fetch(AUTOMATION_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'Footer Contact (Faculty Page)',
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            program: document.getElementById('contactProgram').value,
+            message: document.getElementById('contactMessage').value,
+            timestamp: new Date().toISOString()
+          })
+        });
+        status.innerText = "Message sent successfully!";
+        e.target.reset();
+      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    });
+  </script>
+</body>
+</html>
