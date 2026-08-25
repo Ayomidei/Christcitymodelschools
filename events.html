@@ -30,7 +30,7 @@
     header { background: var(--primary-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; }
     .logo-container { display: flex; align-items: center; gap: 12px; }
-    .logo-badge { width: 60px; height: 60px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border-radius: 50%; display: grid; place-items: center; }
+    .logo-badge { width: 55px; height: 55px; background: linear-gradient(135deg, var(--vibrant-red), var(--bright-red)); border-radius: 50%; display: grid; place-items: center; }
     .logo-text { color: var(--white); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
     .logo-text span { display: block; color: var(--accent-gold); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
     .nav-links { display: flex; align-items: center; gap: 1.8rem; }
@@ -55,6 +55,29 @@
     .section-title { text-align: center; margin-bottom: 3rem; }
     .section-title span { color: var(--vibrant-red); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
     .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); font-weight: 800; margin-top: 0.3rem; }
+
+    .btn-home {
+      background: var(--vibrant-red);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(214, 40, 40, 0.4);
+      animation: pulseGlow 2s infinite;
+      padding: 0.95rem 2.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: flex;
+      transform: translateX(200%);
+      margin-top: 30px ;
+      justify-content: center;
+    }
+
+    .btn-home:hover {
+      background: var(--bright-red);
+      transform: translateY(-3px);
+    }
 
     /* Events Listing Grid */
     .events-list {
@@ -174,16 +197,33 @@
     <p>Stay Informed With School Activities, Academic Deadlines & Sports Galas</p>
   </div>
 
-  <!-- Events Listing -->
-  <section>
+  <div> 
+    <h1 style="color: #EF233C;
+               border: 2px solid #14519c;
+               padding: auto;
+               font-family: 'Courier New', Courier, monospace;
+               font-size: 30px;
+               margin-top: 50px;
+               margin-left: 30px;
+               margin-right: 30px;
+               margin-bottom: 100px;
+               text-align: center;
+               ">No Upcoming Events Yet</h1>
+  </div>
+  <div>
+    <button class="btn-home">Home</button>
+  </div>
+
+  <!-- Events Listing --> 
+  <!-- <section>
     <div class="section-title">
       <span>School Schedule</span>
       <h2>Upcoming Events & Announcements</h2>
-    </div>
+    </div> -->
 
-    <div class="events-list">
+    <!-- <div class="events-list"> -->
       <!-- Event 1 -->
-      <div class="event-row">
+      <!-- <div class="event-row">
         <div class="event-date-box">
           <div class="day">15</div>
           <div class="month">OCT 2026</div>
@@ -199,10 +239,10 @@
         <div class="event-action">
           <button class="btn btn-primary" onclick="openRsvp('Annual Inter-House Sports Gala')">RSVP / Attend</button>
         </div>
-      </div>
+      </div> -->
 
       <!-- Event 2 -->
-      <div class="event-row" style="border-left-color: var(--primary-blue);">
+      <!-- <div class="event-row" style="border-left-color: var(--primary-blue);">
         <div class="event-date-box" style="background: #1D4ED8;">
           <div class="day">02</div>
           <div class="month">NOV 2026</div>
@@ -218,10 +258,10 @@
         <div class="event-action">
           <button class="btn btn-primary" onclick="openRsvp('STEM & Robotics Fair')">RSVP / Attend</button>
         </div>
-      </div>
+      </div> -->
 
       <!-- Event 3 -->
-      <div class="event-row" style="border-left-color: var(--accent-gold);">
+      <!-- <div class="event-row" style="border-left-color: var(--accent-gold);">
         <div class="event-date-box" style="background: #08233e;">
           <div class="day">10</div>
           <div class="month">DEC 2026</div>
@@ -239,10 +279,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- RSVP Modal -->
-  <div class="modal" id="rsvpModal">
+  <!-- <div class="modal" id="rsvpModal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeRsvp()">&times;</span>
       <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;" id="modalEventTitle">Event RSVP</h3>
@@ -256,7 +296,7 @@
         <div id="rsvpStatus" style="color: var(--primary-blue); font-weight: 600; text-align: center; margin-top: 0.5rem;"></div>
       </form>
     </div>
-  </div>
+  </div> -->
 
   <!-- Global Footer -->
   <footer>
@@ -275,6 +315,7 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="index.html" style="color: #94A3B8;">Home</a></li>
           <li><a href="about.html" style="color: #94A3B8;">About Us</a></li>
           <li><a href="programs.html" style="color: #94A3B8;">Programs</a></li>
           <li><a href="academics.html" style="color: #94A3B8;">Academics</a></li>
