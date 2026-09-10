@@ -68,6 +68,7 @@
       justify-content: space-between;
       align-items: center;
       font-weight: 500;
+      font-size: 12px;
     }
 
     .ticker {
@@ -84,6 +85,12 @@
       font-weight: 700;
       font-size: 0.75rem;
       text-transform: uppercase;
+    }
+
+    #call {
+      white-space-collapse: no wrap;
+      font-size: small;
+      margin-left: 5px;
     }
 
     header {
@@ -182,7 +189,7 @@
       position: relative;
       min-height: 88vh;
       background: linear-gradient(135deg, rgba(12, 35, 64, 0.88), rgba(214, 40, 40, 0.75)), 
-                  url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat fixed;
+                  url('./images/backimage1.JPG') center/cover no-repeat fixed;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -685,7 +692,9 @@
       .nav-links.show { display: flex; }
       .mobile-menu-btn { display: block; }
       .pillars { grid-template-columns: 1fr; }
-      .top-bar { display: none; }
+      .top-bar { display: flex; 
+                 padding-left: 2%;}
+      #call { margin-left: auto;}
     }
   </style>
 </head>
@@ -694,10 +703,9 @@
   <!-- Top Announcement Ticker -->
   <div class="top-bar">
     <div class="ticker">
-      <a href="./admissions.html" class="ticker-tag">Admissions</a>
-      <span>Enrolling now for Nursery, Primary & Secondary sessions!</span>
+      <span>Kindly note that the forms on this website are under maintainance, Kindly reach out through our <b>Email</b> or <b>Phone</b> for your enquiry</span>
     </div>
-    <div>Call: +2349057424342 | christcityschools2020@gmail.com</div>
+    <h3 id="call">Call: +2349057424342 <br> Email: <a href="mailto:christcityschools2020@gmailcom">christcityschools2020@gmail.com</a></h3>
   </div>
 
   <!-- Header Navigation -->
@@ -730,7 +738,7 @@
   <section class="hero" style="max-width: 100%; padding: 6rem 2rem;">
     <div class="hero-content">
       <span class="hero-badge">Academic Excellence & Moral Values</span>
-      <h1>Nurturing Confident Leaders From Early Childhood</h1>
+      <h1>Raising Godly Future Leaders</h1>
       <p>A balanced educational journey combining rigorous academics, modern STEM, character building, and championship sports programs.</p>
       <div class="hero-btns">
         <button class="btn btn-primary" onclick="openModal()">Apply For Admission</button>
@@ -763,7 +771,7 @@
   <section class="welcome">
     <div class="welcome-grid">
       <div class="welcome-img">
-        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="Students in Classroom">
+        <img src="./images/backimage1.JPG" alt="Students in Classroom">
       </div>
       <div class="welcome-text">
         <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
@@ -809,7 +817,7 @@
 
       <!-- Creche -->
       <div id="creche" class="program-card active">
-        <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800&auto=format&fit=crop" alt="Creche Environment" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="./images/creche1.jpg" alt="Creche Environment" style="width: 100%; height: 100%; object-fit: cover;">
         <div class="program-info">
           <h3>Creche (3 Months – 2 Years)</h3>
           <p>A safe, hygienic, and nurturing home-away-from-home where infants receive personalized care, sensory stimulation, and early motor skill development.</p>
