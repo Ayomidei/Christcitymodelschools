@@ -139,48 +139,60 @@
       <!-- Member 1 -->
       <div class="staff-card">
         <div class="staff-avatar">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Proprietress">
+          <img src="./images/founder.jpg" alt="Founder">
         </div>
         <div class="staff-info">
-          <h3>Dr. (Mrs.) E. A. Adebayo</h3>
-          <span class="role">Proprietress & Director</span>
-          <p>Over 25 years of educational leadership dedicated to building godly character and academic distinction.</p>
+          <h3>Dr. Z. A. Akinwande</h3>
+          <span class="role">Founder & Director</span>
+          <p>Over 11 years of educational leadership dedicated to building godly character and academic distinction.</p>
         </div>
       </div>
 
       <!-- Member 2 -->
       <div class="staff-card">
         <div class="staff-avatar">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Principal">
+          <img src="./images/Director mrs.jpg" alt="Director Mrs.">
         </div>
         <div class="staff-info">
-          <h3>Mr. O. M. Okonkwo</h3>
-          <span class="role">Secondary Principal</span>
-          <p>M.Ed in Educational Management with passion for STEM development and secondary curriculum innovation.</p>
+          <h3>Dr.(Mrs.) O. O. Akinwande</h3>
+          <span class="role">Director Mrs</span>
+          <p>A great inspirational and educational leader focused on raising godly students and academic giants</p>
         </div>
       </div>
 
       <!-- Member 3 -->
       <div class="staff-card">
         <div class="staff-avatar">
-          <img src="https://images.unsplash.com/photo-1580894732413-a751516a4a11?q=80&w=800&auto=format&fit=crop" alt="Head Teacher">
+          <img src="./images/principal.jpg" alt="Principal">
         </div>
         <div class="staff-info">
-          <h3>Mrs. A. B. Ibrahim</h3>
-          <span class="role">Primary Headmistress</span>
-          <p>Expert in foundational literacy, pupil development, and child psychology in early primary education.</p>
+          <h3>Mrs. O. A. Okonta</h3>
+          <span class="role">Secondary Principal</span>
+          <p>M.Ed in Educational Management with passion for STEM development and secondary curriculum innovation.</p>
         </div>
       </div>
 
       <!-- Member 4 -->
       <div class="staff-card">
         <div class="staff-avatar">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="ICT Head">
+          <img src="./images/headmistress.jpg" alt="Headmistress">
         </div>
         <div class="staff-info">
-          <h3>Engr. K. T. Daniel</h3>
-          <span class="role">Head of ICT & STEM Lab</span>
-          <p>Directs coding modules, robotics projects, and practical digital skills training across all grade levels.</p>
+          <h3>Mrs. O. R. Ayinde</h3>
+          <span class="role">Primary Headmistress</span>
+          <p>Expert in foundational literacy, pupil development, and child psychology in early primary education.</p>
+        </div>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="staff-card">
+        <div class="staff-avatar">
+          <img src="" alt="ICT Head">
+        </div>
+        <div class="staff-info">
+          <h3>Engr. A. E. Adeyemi</h3>
+          <span class="role">Head of ICT</span>
+          <p>Directs coding modules, and practical digital skills training across all grade levels.</p>
         </div>
       </div>
     </div>
@@ -193,8 +205,8 @@
         <h3>Christ City Model Schools</h3>
         <p>Providing excellence in education from Creche to Secondary levels.</p>
         <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
-        <form class="newsletter-form" id="newsletterForm">
-          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
+        <form action="https://formspree.io/f/xyezzrww" method="POST" class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" name="email" placeholder="Enter parent email address"  required>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
           <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
         </form>
@@ -214,10 +226,10 @@
 
       <div class="footer-col">
         <h3>Send Inquiry</h3>
-        <form class="footer-contact-form" id="footerContactForm">
-          <input type="text" id="contactName" placeholder="Your Full Name" required>
-          <input type="email" id="contactEmail" placeholder="Email Address" required>
-          <select id="contactProgram" required>
+        <form action="https://formspree.io/f/xyezzrww" method="POST" class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" name="name" placeholder="Your Full Name" required>
+          <input type="email" id="contactEmail" name="email" placeholder="Email Address" required>
+          <select id="contactProgram" name="program" required>
             <option value="" disabled selected>Select Level</option>
             <option value="Creche">Creche</option>
             <option value="Nursery">Nursery</option>
