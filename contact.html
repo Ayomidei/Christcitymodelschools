@@ -122,7 +122,7 @@
   <!-- Page Hero -->
   <div class="page-hero">
     <h1>Contact Us</h1>
-    <p>Transparent Fee Structures & Direct Channels To Our Administrative Team</p>
+    <p>Direct Channels To Our Administrative Team</p>
   </div>
 
   <!-- Contact Section -->
@@ -246,8 +246,8 @@
   </footer>
 
   <script>
-    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
-
+    // const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
     document.getElementById('mobileBtn').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('show');
     });
@@ -268,7 +268,7 @@
       };
 
       try {
-        await fetch(AUTOMATION_WEBHOOK, {
+        await fetch(FORMSPREE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -286,7 +286,7 @@
       const status = document.getElementById('newsStatus');
       status.innerText = "Subscribing...";
       try {
-        await fetch(AUTOMATION_WEBHOOK, {
+        await fetch(FORMSPREE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ source: 'Newsletter', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
@@ -301,7 +301,7 @@
       const status = document.getElementById('contactStatus');
       status.innerText = "Sending...";
       try {
-        await fetch(AUTOMATION_WEBHOOK, {
+        await fetch(FORMSPREE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

@@ -43,7 +43,7 @@
       position: relative;
       padding: 5rem 2rem;
       background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
-                  url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+                  url('./images/IMG_2022.jpg') center/cover no-repeat;
       color: var(--white);
       text-align: center;
     }
@@ -141,7 +141,7 @@
       <!-- Creche -->
       <div class="program-card">
         <div class="program-img">
-          <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800&auto=format&fit=crop" alt="Creche Program">
+          <img src="./images/creche1.jpg" alt="Creche Program">
           <span class="program-tag">Ages 3m - 1.5 yrs</span>
         </div>
         <div class="program-body">
@@ -258,48 +258,119 @@
   </footer>
 
   <script>
-    const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+    // const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
 
-    document.getElementById('mobileBtn').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('show');
+    // document.getElementById('mobileBtn').addEventListener('click', () => {
+    //   document.getElementById('navLinks').classList.toggle('show');
+    // });
+
+    // document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+    //   e.preventDefault();
+    //   const status = document.getElementById('newsStatus');
+    //   status.innerText = "Subscribing...";
+    //   try {
+    //     await fetch(AUTOMATION_WEBHOOK, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({ source: 'Newsletter (Programs Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+    //     });
+    //     status.innerText = "Subscribed successfully!";
+    //     e.target.reset();
+    //   } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    // });
+
+    // document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+    //   e.preventDefault();
+    //   const status = document.getElementById('contactStatus');
+    //   status.innerText = "Sending...";
+    //   try {
+    //     await fetch(AUTOMATION_WEBHOOK, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({
+    //         source: 'Footer Contact (Programs Page)',
+    //         name: document.getElementById('contactName').value,
+    //         email: document.getElementById('contactEmail').value,
+    //         program: document.getElementById('contactProgram').value,
+    //         message: document.getElementById('contactMessage').value,
+    //         timestamp: new Date().toISOString()
+    //       })
+    //     });
+    //     status.innerText = "Message sent successfully!";
+    //     e.target.reset();
+    //   } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    // });
+
+    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
+
+document.getElementById('mobileBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
+// Newsletter Form
+document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('newsStatus');
+  status.innerText = "Subscribing...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Newsletter (Faculty Page)',
+        email: document.getElementById('newsEmail').value,
+        timestamp: new Date().toISOString()
+      })
     });
 
-    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = document.getElementById('newsStatus');
-      status.innerText = "Subscribing...";
-      try {
-        await fetch(AUTOMATION_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ source: 'Newsletter (Programs Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
-        });
-        status.innerText = "Subscribed successfully!";
-        e.target.reset();
-      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    if (response.ok) {
+      status.innerText = "Subscribed successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error subscribing. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error subscribing. Please check your connection.";
+  }
+});
+
+// Footer Contact Form
+document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('contactStatus');
+  status.innerText = "Sending...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Footer Contact (Faculty Page)',
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        program: document.getElementById('contactProgram').value,
+        message: document.getElementById('contactMessage').value,
+        timestamp: new Date().toISOString()
+      })
     });
 
-    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = document.getElementById('contactStatus');
-      status.innerText = "Sending...";
-      try {
-        await fetch(AUTOMATION_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            source: 'Footer Contact (Programs Page)',
-            name: document.getElementById('contactName').value,
-            email: document.getElementById('contactEmail').value,
-            program: document.getElementById('contactProgram').value,
-            message: document.getElementById('contactMessage').value,
-            timestamp: new Date().toISOString()
-          })
-        });
-        status.innerText = "Message sent successfully!";
-        e.target.reset();
-      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
-    });
+    if (response.ok) {
+      status.innerText = "Message sent successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error sending message. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error sending message. Please check your connection.";
+  }
+});
   </script>
 </body>
 </html>

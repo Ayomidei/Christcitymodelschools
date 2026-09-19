@@ -43,7 +43,7 @@
       position: relative;
       padding: 5rem 2rem;
       background: linear-gradient(135deg, rgba(12, 35, 64, 0.9), rgba(214, 40, 40, 0.8)), 
-                  url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+                  url('./images/Bluehouse.jpg') center/cover no-repeat;
       color: var(--white);
       text-align: center;
     }
@@ -343,88 +343,159 @@
   </footer>
 
   <script>
-    const AUTOMATION_WEBHOOK = "https://hook.eu1.make.com/n850cf053zfupt6bq9evrww7u6mtpohx";
-    let selectedEventName = "";
+    // const AUTOMATION_WEBHOOK = "https://hook.eu1.make.com/n850cf053zfupt6bq9evrww7u6mtpohx";
+    // let selectedEventName = "";
 
-    document.getElementById('mobileBtn').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('show');
-    });
+    // document.getElementById('mobileBtn').addEventListener('click', () => {
+    //   document.getElementById('navLinks').classList.toggle('show');
+    // });
 
-    // RSVP Modal Controls
-    function openRsvp(eventName) {
-      selectedEventName = eventName;
-      document.getElementById('modalEventTitle').innerText = "RSVP: " + eventName;
-      document.getElementById('rsvpModal').classList.add('active');
-    }
-    function closeRsvp() {
-      document.getElementById('rsvpModal').classList.remove('active');
-    }
+    // // RSVP Modal Controls
+    // function openRsvp(eventName) {
+    //   selectedEventName = eventName;
+    //   document.getElementById('modalEventTitle').innerText = "RSVP: " + eventName;
+    //   document.getElementById('rsvpModal').classList.add('active');
+    // }
+    // function closeRsvp() {
+    //   document.getElementById('rsvpModal').classList.remove('active');
+    // }
 
-    // RSVP Form Submission Webhook Handler
-    document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = document.getElementById('rsvpStatus');
-      status.innerText = "Processing reservation...";
+    // // RSVP Form Submission Webhook Handler
+    // document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+    //   e.preventDefault();
+    //   const status = document.getElementById('rsvpStatus');
+    //   status.innerText = "Processing reservation...";
 
-      const payload = {
-        source: 'Event RSVP',
-        eventName: selectedEventName,
-        name: document.getElementById('rsvpName').value,
-        email: document.getElementById('rsvpEmail').value,
-        phone: document.getElementById('rsvpPhone').value,
+    //   const payload = {
+    //     source: 'Event RSVP',
+    //     eventName: selectedEventName,
+    //     name: document.getElementById('rsvpName').value,
+    //     email: document.getElementById('rsvpEmail').value,
+    //     phone: document.getElementById('rsvpPhone').value,
+    //     timestamp: new Date().toISOString()
+    //   };
+
+    //   try {
+    //     await fetch(AUTOMATION_WEBHOOK, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify(payload)
+    //     });
+    //     status.innerText = "RSVP Confirmed! Closing window...";
+    //     setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
+    //   } catch (err) {
+    //     status.innerText = "RSVP Confirmed!";
+    //     setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
+    //   }
+    // });
+
+    // document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+    //   e.preventDefault();
+    //   const status = document.getElementById('newsStatus');
+    //   status.innerText = "Subscribing...";
+    //   try {
+    //     await fetch(AUTOMATION_WEBHOOK, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({ source: 'Newsletter (Events Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
+    //     });
+    //     status.innerText = "Subscribed successfully!";
+    //     e.target.reset();
+    //   } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    // });
+
+    // document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+    //   e.preventDefault();
+    //   const status = document.getElementById('contactStatus');
+    //   status.innerText = "Sending...";
+    //   try {
+    //     await fetch(AUTOMATION_WEBHOOK, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({
+    //         source: 'Footer Contact (Events Page)',
+    //         name: document.getElementById('contactName').value,
+    //         email: document.getElementById('contactEmail').value,
+    //         program: document.getElementById('contactProgram').value,
+    //         message: document.getElementById('contactMessage').value,
+    //         timestamp: new Date().toISOString()
+    //       })
+    //     });
+    //     status.innerText = "Message sent successfully!";
+    //     e.target.reset();
+    //   } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
+    // });
+
+    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
+
+document.getElementById('mobileBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
+// Newsletter Form
+document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('newsStatus');
+  status.innerText = "Subscribing...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Newsletter (Faculty Page)',
+        email: document.getElementById('newsEmail').value,
         timestamp: new Date().toISOString()
-      };
-
-      try {
-        await fetch(AUTOMATION_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        status.innerText = "RSVP Confirmed! Closing window...";
-        setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
-      } catch (err) {
-        status.innerText = "RSVP Confirmed!";
-        setTimeout(() => { closeRsvp(); e.target.reset(); status.innerText = ""; }, 2000);
-      }
+      })
     });
 
-    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = document.getElementById('newsStatus');
-      status.innerText = "Subscribing...";
-      try {
-        await fetch(AUTOMATION_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ source: 'Newsletter (Events Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
-        });
-        status.innerText = "Subscribed successfully!";
-        e.target.reset();
-      } catch (err) { status.innerText = "Subscribed successfully!"; e.target.reset(); }
+    if (response.ok) {
+      status.innerText = "Subscribed successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error subscribing. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error subscribing. Please check your connection.";
+  }
+});
+
+// Footer Contact Form
+document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('contactStatus');
+  status.innerText = "Sending...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Footer Contact (Faculty Page)',
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        program: document.getElementById('contactProgram').value,
+        message: document.getElementById('contactMessage').value,
+        timestamp: new Date().toISOString()
+      })
     });
 
-    document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = document.getElementById('contactStatus');
-      status.innerText = "Sending...";
-      try {
-        await fetch(AUTOMATION_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            source: 'Footer Contact (Events Page)',
-            name: document.getElementById('contactName').value,
-            email: document.getElementById('contactEmail').value,
-            program: document.getElementById('contactProgram').value,
-            message: document.getElementById('contactMessage').value,
-            timestamp: new Date().toISOString()
-          })
-        });
-        status.innerText = "Message sent successfully!";
-        e.target.reset();
-      } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
-    });
+    if (response.ok) {
+      status.innerText = "Message sent successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error sending message. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error sending message. Please check your connection.";
+  }
+});
   </script>
 </body>
 </html>

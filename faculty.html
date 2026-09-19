@@ -205,8 +205,8 @@
         <h3>Christ City Model Schools</h3>
         <p>Providing excellence in education from Creche to Secondary levels.</p>
         <h4 style="font-size: 0.95rem; color: var(--white); margin: 1.5rem 0 0.5rem 0;">Subscribe to Newsletter</h4>
-        <form action="https://formspree.io/f/xyezzrww" method="POST" class="newsletter-form" id="newsletterForm">
-          <input type="email" id="newsEmail" name="email" placeholder="Enter parent email address"  required>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsEmail" placeholder="Enter parent email address" required>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
           <div id="newsStatus" style="color: var(--accent-gold); font-size: 0.85rem; margin-top: 0.5rem;"></div>
         </form>
@@ -226,8 +226,8 @@
 
       <div class="footer-col">
         <h3>Send Inquiry</h3>
-        <form action="https://formspree.io/f/xyezzrww" method="POST" class="footer-contact-form" id="footerContactForm">
-          <input type="text" id="contactName" name="name" placeholder="Your Full Name" required>
+        <form class="footer-contact-form" id="footerContactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required>
           <input type="email" id="contactEmail" name="email" placeholder="Email Address" required>
           <select id="contactProgram" name="program" required>
             <option value="" disabled selected>Select Level</option>
@@ -244,7 +244,7 @@
     </div>
   </footer>
 
-  <script>
+  <!-- <script>
     const AUTOMATION_WEBHOOK = "https://hook.eu1.make.com/n850cf053zfupt6bq9evrww7u6mtpohx";
 
     document.getElementById('mobileBtn').addEventListener('click', () => {
@@ -287,6 +287,78 @@
         e.target.reset();
       } catch (err) { status.innerText = "Message sent successfully!"; e.target.reset(); }
     });
-  </script>
+  </script> -->
+  <script>
+const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
+
+document.getElementById('mobileBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
+// Newsletter Form
+document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('newsStatus');
+  status.innerText = "Subscribing...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Newsletter (Faculty Page)',
+        email: document.getElementById('newsEmail').value,
+        timestamp: new Date().toISOString()
+      })
+    });
+
+    if (response.ok) {
+      status.innerText = "Subscribed successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error subscribing. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error subscribing. Please check your connection.";
+  }
+});
+
+// Footer Contact Form
+document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('contactStatus');
+  status.innerText = "Sending...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        source: 'Footer Contact (Faculty Page)',
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        program: document.getElementById('contactProgram').value,
+        message: document.getElementById('contactMessage').value,
+        timestamp: new Date().toISOString()
+      })
+    });
+
+    if (response.ok) {
+      status.innerText = "Message sent successfully!";
+      e.target.reset();
+    } else {
+      status.innerText = "Error sending message. Please try again.";
+    }
+  } catch (err) {
+    status.innerText = "Error sending message. Please check your connection.";
+  }
+});
+</script>
 </body>
 </html>

@@ -66,7 +66,7 @@
     /* Sports Banner */
     .sports-feature {
       background: linear-gradient(rgba(12, 35, 64, 0.85), rgba(12, 35, 64, 0.85)),
-                  url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+                  url('') center/cover no-repeat;
       border-radius: 12px;
       padding: 4rem 2rem;
       color: var(--white);
@@ -138,7 +138,7 @@
         <p>Our commitment remains unchanged: providing a safe, welcoming, and disciplined environment where children excel academically, morally, and physically.</p>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="School Building" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+        <img src="./images/library.jpg" alt="School Building" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
       </div>
     </div>
   </section>
@@ -243,7 +243,7 @@
   </footer>
 
   <script>
-    const AUTOMATION_WEBHOOK = "https://hook.eu1.make.com/n850cf053zfupt6bq9evrww7u6mtpohx";
+    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
 
     document.getElementById('mobileBtn').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('show');
@@ -254,7 +254,7 @@
       const status = document.getElementById('newsStatus');
       status.innerText = "Subscribing...";
       try {
-        await fetch(AUTOMATION_WEBHOOK, {
+        await fetch(FORMSPREE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ source: 'Newsletter (About Page)', email: document.getElementById('newsEmail').value, timestamp: new Date().toISOString() })
@@ -269,7 +269,7 @@
       const status = document.getElementById('contactStatus');
       status.innerText = "Sending...";
       try {
-        await fetch(AUTOMATION_WEBHOOK, {
+        await fetch(FORMSPREE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
