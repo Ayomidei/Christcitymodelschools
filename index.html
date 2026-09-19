@@ -109,6 +109,9 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo-container {
@@ -683,6 +686,7 @@
         display: none;
         position: absolute;
         top: 100%;
+        z-index: 999;
         left: 0;
         width: 100%;
         background: var(--primary-blue);
@@ -1007,13 +1011,14 @@
   <script>
     // // Replace with your n8n / Make.com webhook URL
     // const AUTOMATION_WEBHOOK = "https://unclad-serve-lifter.ngrok-free.dev/webhook-test/school-lead";
+       
+    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
 
     // Mobile Navigation Toggle
     const mobileBtn = document.getElementById('mobileBtn');
     const navLinks = document.getElementById('navLinks');
     mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+      navLinks.classList.toggle('show') });
 
     // Program Tab Switcher
     function switchTab(evt, levelId) {
@@ -1034,61 +1039,6 @@
     function closeModal() {
       document.getElementById('enrollModal').classList.remove('active');
     }
-
-    // // Newsletter Webhook Handler
-    // document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
-    //   e.preventDefault();
-    //   const status = document.getElementById('newsStatus');
-    //   const email = document.getElementById('newsEmail').value;
-      
-    //   status.innerText = "Subscribing...";
-
-    //   try {
-    //     await fetch(AUTOMATION_WEBHOOK, {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify({
-    //         source: 'Newsletter Sub',
-    //         email: email,
-    //         timestamp: new Date().toISOString()
-    //       })
-    //     });
-    //     status.innerText = "Subscribed successfully!";
-    //     e.target.reset();
-    //   } catch (err) {
-    //     status.innerText = "Subscribed successfully! (Logged locally)";
-    //     e.target.reset();
-    //   }
-    // });
-
-    // // Footer Contact Webhook Handler
-    // document.getElementById('footerContactForm').addEventListener('submit', async (e) => {
-    //   e.preventDefault();
-    //   const status = document.getElementById('contactStatus');
-    //   status.innerText = "Sending message...";
-
-    //   const payload = {
-    //     source: 'Footer Contact Form',
-    //     name: document.getElementById('contactName').value,
-    //     email: document.getElementById('contactEmail').value,
-    //     program: document.getElementById('contactProgram').value,
-    //     message: document.getElementById('contactMessage').value,
-    //     timestamp: new Date().toISOString()
-    //   };
-
-    //   try {
-    //     await fetch(AUTOMATION_WEBHOOK, {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify(payload)
-    //     });
-    //     status.innerText = "Message sent! We will contact you soon.";
-    //     e.target.reset();
-    //   } catch (err) {
-    //     status.innerText = "Message sent successfully!";
-    //     e.target.reset();
-    //   }
-    // });
 
     // Modal Webhook Handler
     document.getElementById('modalForm').addEventListener('submit', async (e) => {
@@ -1121,12 +1071,6 @@
         setTimeout(() => { closeModal(); e.target.reset(); status.innerText = ""; }, 2000);
       }
     });
-  
-    const FORMSPREE_URL = "https://formspree.io/f/xyezzrww";
-
-document.getElementById('mobileBtn').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('show');
-});
 
 // Newsletter Form
 document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
